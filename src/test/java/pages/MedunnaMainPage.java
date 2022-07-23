@@ -84,6 +84,12 @@ public class MedunnaMainPage {
     @FindBy(xpath = "//input[@id='email']")
     public WebElement userEmail;
 
+    @FindBy(xpath = "//span[normalize-space()='Save']")
+    public WebElement userSettingsSave;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement userDatesUpdatedVerification;
+
 
 
 

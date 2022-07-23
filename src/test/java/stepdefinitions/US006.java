@@ -29,10 +29,22 @@ public class US006 {
         Assert.assertEquals("infotech@medunna.com", userEmailText);
 
     }
+    @And("Save butonuna tiklar")
+    public void saveButonunaTiklar() {
+        mainPage.userSettingsSave.click();
+
+    }
 
     @Then("Firstname, lastname ve Email guncelleme seceneginin oldugunu kontrol eder")
     public void firstnameLastnameVeEmailGuncellemeSecenegininOldugunuKontrolEder() {
+        Assert.assertTrue(mainPage.userDatesUpdatedVerification.isDisplayed());
+
+
     }
+
+
+
+
 
 
 }
