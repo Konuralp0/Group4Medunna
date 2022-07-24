@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.PageFactoryFinder;
 import utilities.Driver;
 
 public class MedunnaMainPage {
@@ -116,6 +117,59 @@ public class MedunnaMainPage {
 
     @FindBy(xpath = "(//span[contains(text(),'COMPLETED')])[1]")
     public WebElement appointmentStatus;
+
+    @FindBy(xpath = "(//a[@class='btn btn-info btn-sm'])[1]")
+    public WebElement appointmentViewButton;
+
+    @FindBy(css = "div[class='col-md-8'] h2 b")
+    public WebElement appointmentIDView;
+
+    @FindBy(css = "dd:nth-child(21)")
+    public WebElement appointmentStartDateView;
+
+    @FindBy(css = "dd:nth-child(4)")
+    public WebElement appointmentEndDateView;
+
+    @FindBy(css = "dd:nth-child(16)")
+    public WebElement appointmentDescriptionView;
+
+    @FindBy(css = "dd:nth-child(6)")
+    public WebElement appointmentStatusView;
+
+    @FindBy(css = "dd:nth-child(22)")
+    public WebElement appointmentPatientView;
+
+    @FindBy(css = "css dd:nth-child(18)")
+    public WebElement appointmentCreateDateView;
+
+    @FindBy(xpath = "(//span[contains(text(),'Edit')])[1]")
+    public WebElement appointmentEditButton;
+
+    @FindBy(xpath = "//input[@id='appointment-id']")
+    public WebElement appointmentIDEdit;
+
+    @FindBy(xpath = "(//input[@id='appointment-startDate']")
+    public WebElement appointmentStartDateEdit;
+
+    @FindBy(xpath = "(//input[@id='appointment-endDate']")
+    public WebElement appointmentEndDateEdit;
+
+    @FindBy(xpath = "(//textarea[@id='appointment-description']")
+    public WebElement appointmentDescriptionEdit;
+
+    @FindBy(xpath = "(//select[@id='appointment-status']")
+
+    public WebElement appointmentStatusEdit;
+
+    @FindBy(xpath = "//select[@id='appointment-patient']")
+    public WebElement appointmentEPatientEdit;
+
+
+
+
+
+
+
 
 
 
