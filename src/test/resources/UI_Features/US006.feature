@@ -1,7 +1,7 @@
 @us006
 
 Feature: US006
-  Scenario: Kullanici bilgileri doldurulan bilgilerden olusmali ve güncelleme secenegi olmalidir
+  Scenario: Kullanici bilgileri, doldurulan bilgilerden olusmali ve güncelleme secenegi olmalidir
     Given Medunna ana sayfasina gider
     And Sign in secenegini secer
     And kullanici adini ve sifresini girer

@@ -90,6 +90,41 @@ public class MedunnaMainPage {
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement userDatesUpdatedVerification;
 
+    @FindBy(xpath = "//span[normalize-space()='Items&Titles']")
+    public WebElement itemsTitles;
+
+    @FindBy(xpath = "//span[normalize-space()='Appointment']")
+    public WebElement appointment;
+
+    @FindBy(xpath ="//table[@class='table']")
+    public WebElement randevuListesi;
+
+    @FindBy(xpath = "//span[normalize-space()='Start DateTime']")
+    public WebElement randevuZamanDilimiBaslangic;
+
+    @FindBy(xpath = "//span[normalize-space()='End DateTime']")
+    public WebElement randevuZamanDilimiBitis;
+
+    @FindBy(xpath = "//a[normalize-space()='2301']")
+    public WebElement appointmentPatientID;
+
+    @FindBy(xpath = "//span[normalize-space()='15/12/21 01:00']")
+    public WebElement appointmentStartDate;
+
+    @FindBy(xpath = "//span[normalize-space()='17/12/21 02:00']")
+    public WebElement appointmentEndDate;
+
+    @FindBy(xpath = "(//span[contains(text(),'COMPLETED')])[1]")
+    public WebElement appointmentStatus;
+
+
+
+
+
+
+
+
+
 
 
 
