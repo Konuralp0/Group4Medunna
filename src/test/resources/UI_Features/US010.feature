@@ -11,4 +11,5 @@ Feature: US010
     And Appointments butonuna tiklar
     Then randevu listesi ve zaman dilimleri oldugunu kontrol eder
     Then patient id, start date, end date ve status bilgileri oldugunu kontrol eder
+    And tarayiciyi kapatir
 
