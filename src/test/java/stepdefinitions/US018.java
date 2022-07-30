@@ -77,16 +77,7 @@ public class US018 {
     public void fotogragYuklenebilirliginiKontrolEder() {
     }
 
-    @Given("Admin olaral giris yapilir")
-    public void adminOlaralGirisYapilir() {
-        mainPage.signInRegister.click();
-        mainPage.signIn.click();
-        mainPage.username.sendKeys(ConfigReader.getProperty("infoTech") + Keys.TAB);
-        mainPage.password.sendKeys(ConfigReader.getProperty("Admin123.")+Keys.TAB);
-        mainPage.sigInButton.click();
-        Driver.wait(2);
 
-    }
 
     @Then("adi soyadi dogum tarihi vb bilgilerinin oldugunu test eder")
     public void adiSoyadiDogumTarihiVbBilgilerininOldugunuTestEder() {
@@ -95,5 +86,113 @@ public class US018 {
         Assert.assertTrue(physicianPage.physicianGender.isDisplayed());
         Assert.assertTrue(physicianPage.physicianSpeciality.isDisplayed());
         Assert.assertTrue(physicianPage.physicianBloodGroup.isDisplayed());
+    }
+
+    @And("Speciality menusune tiklar ve bir uzmanlik dali secer")
+    public void specialityMenusuneTiklarVeBirUzmanlikDaliSecer() {
+        Select slc = new Select(physicianPage.physicianSpeciality);
+        slc.selectByVisibleText("Dermatology");
+
+    }
+
+    @Then("secimi kontrol eder")
+    public void secimiKontrolEder() {
+        Assert.assertTrue(physicianPage.selectedSpeciality.isDisplayed());
+    }
+
+
+    @And("Exam fee ye tiklar Muayene ucreti verisi girer")
+    public void examFeeYeTiklarMuayeneUcretiVerisiGirer() {
+        physicianPage.physicianExamFee.sendKeys("20");
+
+    }
+
+    @Then("Girildiginin kontrolunu yapar")
+    public void girildigininKontrolunuYapar() {
+        Assert.assertEquals("20" , physicianPage.physicianExamFee.getText());
+    }
+
+
+    @And("image file butonuna tiklar  ve doktor fotografi yukler")
+    public void imageFileButonunaTiklarVeDoktorFotografiYukler() {
+        physicianPage.physicianImageFileUpload.sendKeys("physicianPhoto.jpg");
+
+    }
+
+    @Then("fotografin yuklendigini test eder")
+    public void fotografinYuklendiginiTestEder() {
+        Assert.assertTrue(physicianPage.physicianUploadedPhoto.isDisplayed());
+    }
+
+    @And("view butonuna tiklar")
+    public void viewButonunaTiklar() {
+        physicianPage.physiciansViewButton.click();
+    }
+
+    @Then("bilgilerin goruntulandigini test eder")
+    public void bilgilerinGoruntulandiginiTestEder() {
+        Assert.assertTrue(physicianPage.physicianViewName.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewLastName.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewBirthDate.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewPhone.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewGender.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewBloodGroup.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewAddress.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewSpeciality.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewDescription.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewCreatedDate.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewImage.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewUserName.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewCountry.isDisplayed());
+        Assert.assertTrue(physicianPage.physicianViewStateCity.isDisplayed());
+
+    }
+
+
+    @And("degistirecegi doktor satirinda edit butonuna tiklar")
+    public void degistirecegiDoktorSatirindaEditButonunaTiklar() {
+        physicianPage.physiciansEditButton.click();
+    }
+
+    @And("secilen doktor bilgilerinde degisiklik yapilir")
+    public void secilenDoktorBilgilerindeDegisiklikYapilir() {
+        physicianPage.physicianEditExamFee.sendKeys("200");
+    }
+
+    @And("save butonuna basilir")
+    public void saveButonunaBasilir() {
+        physicianPage.physicianEditSaveButton.click();
+
+    }
+
+    @Then("guncellemerin yapildigi test edilir")
+    public void guncellemerinYapildigiTestEdilir() {
+        Assert.assertEquals("200", physicianPage.physicianEditChangedExamFee);
+    }
+
+    @Then("secilen doktorun silinebildigini test eder")
+    public void secilenDoktorunSilinebildiginiTestEder() {
+        Assert.assertTrue(physicianPage.physicianDeleteButton.isEnabled());
+    }
+
+    @Given("Admin menusune gider")
+    public void adminMenusuneGider() {
+        mainPage.administration.click();
+    }
+
+    @And("User Management butonuna tiklar")
+    public void userManagementButonunaTiklar() {
+        mainPage.userManagement.click();
+    }
+
+    @And("Kullanicilar arasindan doktor secer")
+    public void kullanicilarArasindanDoktorSecer() {
+        mainPage.userSelectDoctor.click();
+    }
+
+    @Then("doktor rolu oldugunu test eder")
+    public void doktorRoluOldugunuTestEder() {
+        Assert.assertTrue(mainPage.testRolePhysician.isDisplayed());
+
     }
 }
