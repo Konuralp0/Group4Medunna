@@ -83,7 +83,12 @@ public class MedunnaMainPage {
     public WebElement mYPAGES;
 
     @FindBy(xpath="//span[normalize-space()='My Appointments']")
-    public WebElement myAppointments;
+    public WebElement myAppointments;@FindBy(xpath = "//span[normalize-space()='User management']") public  WebElement userManagement;
+    @FindBy(xpath = "//span[normalize-space()='info tech']")public WebElement accountMenu;
+    @FindBy(xpath = "//li[@id='account-menu']//div[@role='menu']//a[1]") public WebElement userSettings;
+    @FindBy(xpath = "//button[@type='submit']") public WebElement userSettingsSave;
+    @FindBy(xpath = "//div[@role='alert']") public WebElement userDatesUpdatedVerification;
+
 
 
 

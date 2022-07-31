@@ -49,6 +49,9 @@ public class MedunnaAdminItemsAndTitles {
     @FindBy(xpath="//span[normalize-space()='Created Date']") public WebElement createdLabel;
     @FindBy(xpath="//span[normalize-space()='Test Items']") public WebElement testItems;
     @FindBy(xpath="//a[@class='btn btn-danger btn-sm']") public WebElement deleteButton;
+    @FindBy(xpath = "//span[normalize-space()='Physician']") public WebElement physicianButton;
+    @FindBy(xpath = "//a[normalize-space()='2001']") public WebElement userSelectDoctor;
+    @FindBy(xpath = "//span[normalize-space()='ROLE_PHYSICIAN']") public WebElement testRolePhysician;
 
 
 
