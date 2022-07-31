@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.Select;
 import pages.MedunnaAdminItemsAndTitles;
 import pages.MedunnaMainPage;
 import pages.MedunnaPhysicianPage;
-import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US018 {
@@ -194,5 +193,10 @@ public class US018 {
     public void doktorRoluOldugunuTestEder() {
         Assert.assertTrue(mainPage.testRolePhysician.isDisplayed());
 
+    }
+    @And("admin kullanici adini ve sifresini girer")
+    public void adminKullaniciAdiniVeSifresiniGirer() {
+        mainPage.username.sendKeys("infoTech" +Keys.TAB);
+        mainPage.password.sendKeys("Admin123.");
     }
 }

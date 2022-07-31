@@ -7,7 +7,7 @@ import utilities.Driver;
 
 public class MedunnaRegisterPage {
 
- public Object username;
+
 
  public MedunnaRegisterPage(){ PageFactory.initElements(Driver.getDriver(), this);
 
@@ -31,4 +31,7 @@ public class MedunnaRegisterPage {
    @FindBy(xpath="//input[@id='username']")
    public WebElement registerusername;
 
+   @FindBy(className = "is-touched is-dirty av-valid form-control") public WebElement usernameVerification;
+   @FindBy(xpath = "//input[@placeholder='Your email']") public WebElement email;
+    @FindBy(className = "is-touched is-dirty av-valid form-control") public WebElement emailVerification;
 }

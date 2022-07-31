@@ -5,7 +5,7 @@ Feature: Admin olarak Yeni Physicians Olustur  Guncelle  Goruntule ve Sil
     Given Medunna ana sayfasina gider
     And ana sayfa giris ikonuna tiklar
     And Sign in secenegini secer
-    And kullanici adini ve sifresini girer
+    And admin kullanici adini ve sifresini girer
     Then Sign in butonuna tiklar
 
 
