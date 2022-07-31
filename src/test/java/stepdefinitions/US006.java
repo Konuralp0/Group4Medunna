@@ -4,28 +4,31 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.MedunnaMainPage;
+import utilities.Driver;
 
 
 public class US006 {
     MedunnaMainPage mainPage = new MedunnaMainPage();
     @And("Kullanici menusu butonuna tiklar")
     public void kullaniciMenusuButonunaTiklar() {
-        mainPage.userMenusu.click();
+        mainPage.accountMenu.click();
+        Driver.wait(2);
 
     }
 
     @And("Settings butonuna tiklar")
     public void settingsButonunaTiklar() {
-        mainPage.settings.click();
+        mainPage.userSettings.click();
+        Driver.wait(2);
     }
 
     @Then("Kullanici bilgilerinin dogrulugunu test eder")
     public void kullaniciBilgilerininDogrulugunuTestEder() {
-        String userFirstNameText= mainPage.userFirstName.getText();
+        String userFirstNameText= mainPage.firstName.getText();
         Assert.assertEquals("info", userFirstNameText);
-        String userLastNameText= mainPage.userLastName.getText();
+        String userLastNameText= mainPage.lastName.getText();
         Assert.assertEquals("tech", userLastNameText);
-        String userEmailText= mainPage.userEmail.getText();
+        String userEmailText= mainPage.email.getText();
         Assert.assertEquals("infotech@medunna.com", userEmailText);
 
     }
