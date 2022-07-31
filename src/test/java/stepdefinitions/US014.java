@@ -5,44 +5,48 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import pages.MedunnaAppointmentPage;
 import pages.MedunnaMainPage;
+import pages.MedunnaPhysicianPage;
 
 import java.util.List;
 
 public class US014 {
     MedunnaMainPage mainPage=new MedunnaMainPage();
+    MedunnaPhysicianPage physicianPage=new MedunnaPhysicianPage();
+    MedunnaAppointmentPage appointmentPage=new MedunnaAppointmentPage();
     @And("View butonuna tiklar")
     public void viewButonunaTiklar() {
-        mainPage.appointmentViewButton.click();
+        appointmentPage.appointmentViewButton.click();
 
     }
 
     @Then(value = "istenilen bilgilerin goruntulendigini kontrol eder")
     public void istenilenBilgilerinGoruntulendiginiKontrolEder() {
 
-        Assert.assertTrue(mainPage.appointmentIDView.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentStartDateView.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentEndDateView.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentDescriptionView.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentCreateDateView.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentStatusView.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentPatientView.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentIDView.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentStartDateView.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentEndDateView.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentDescriptionView.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentCreateDateView.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentStatusView.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentPatientView.isDisplayed());
 
     }
 
     @And("Edit butonuna tiklar")
     public void editButonunaTiklar() {
-        mainPage.appointmentEditButton.click();
+        appointmentPage.appointmentEditButton.click();
     }
 
     @Then("istenilen bilgilerin guncellenebildigini kontrol eder")
     public void istenilenBilgilerinGuncellenebildiginiKontrolEder() {
-        Assert.assertTrue(mainPage.appointmentIDEdit.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentStartDateEdit.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentEndDateEdit.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentDescriptionEdit.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentStatusEdit.isDisplayed());
-        Assert.assertTrue(mainPage.appointmentEPatientEdit.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentIDEdit.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentStartDateEdit.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentEndDateEdit.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentDescriptionEdit.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentStatusEdit.isDisplayed());
+        Assert.assertTrue(appointmentPage.appointmentEPatientEdit.isDisplayed());
 
     }
 
@@ -50,7 +54,7 @@ public class US014 {
     public void statusUnGuncellenebildiginiKontrolEder() {
 
         String[] statusType = {"UNAPPROVED, DISCHARGED, STILL, STAYING, CANCELLED"};
-        Select appointmentStatus =new Select(mainPage.appointmentStatusEdit);
+        Select appointmentStatus =new Select(appointmentPage.appointmentStatusEdit);
 
         List<WebElement> status = appointmentStatus.getOptions();
         for (WebElement condition:status) {
